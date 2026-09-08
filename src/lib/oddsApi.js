@@ -1,5 +1,5 @@
-// Client for The Odds API (https://the-odds-api.com/). Free keys work for
-// everything here except historical snapshots, which are a paid-plan endpoint.
+// Client for The Odds API (https://the-odds-api.com/). A free key covers
+// everything this app asks for.
 
 const BASE = 'https://api.the-odds-api.com/v4'
 export const SPORT = 'americanfootball_nfl'
@@ -74,8 +74,8 @@ async function request(path, params, { signal, timeoutMs = 12000 } = {}) {
       const retryAfter = Number(res.headers.get('retry-after')) || null
       throw new OddsApiError('rate_limit', detail || 'Rate limited by The Odds API. Wait a moment and retry.', { status: 429, quota, retryAfter })
     }
-    if (res.status === 402 || /historical/i.test(detail)) {
-      throw new OddsApiError('plan', detail || 'That endpoint needs a paid Odds API plan.', { status: res.status, quota })
+    if (res.status === 402) {
+      throw new OddsApiError('plan', detail || 'That request needs a paid Odds API plan.', { status: res.status, quota })
     }
     if (res.status >= 500) {
       throw new OddsApiError('server', 'The Odds API is having trouble right now. Try again shortly.', { status: res.status, quota })
@@ -110,24 +110,6 @@ export async function fetchScores({ apiKey, daysFrom = 3, signal }) {
     { signal },
   )
   return { events: Array.isArray(data) ? data : [], quota }
-}
-
-/**
- * Odds as they stood at a past moment. Paid plans only - the app treats a `plan`
- * error here as "fall back to the locally captured snapshot", not as a failure.
- */
-export async function fetchHistoricalSpreads({ apiKey, date, regions = 'us', oddsFormat = 'decimal', bookmakers, signal }) {
-  if (!apiKey) throw new OddsApiError('auth', 'Add your Odds API key in Settings first.')
-  const { data, quota } = await request(
-    `/historical/sports/${SPORT}/odds`,
-    { apiKey, regions: bookmakers ? undefined : regions, bookmakers, markets: 'spreads', oddsFormat, dateFormat: 'iso', date },
-    { signal },
-  )
-  return {
-    events: Array.isArray(data?.data) ? data.data : [],
-    timestamp: data?.timestamp || date,
-    quota,
-  }
 }
 
 /** Cheap key check: /sports costs no credits. */

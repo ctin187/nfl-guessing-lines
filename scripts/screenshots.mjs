@@ -87,17 +87,23 @@ try {
     await page.close()
   }
 
-  // Same data, clock moved past both weeks, lines revealed.
+  // Reveal both weeks, then shoot the graded week and the season view.
   const after = await ctx.newPage()
-  await after.clock.install({ time: new Date('2026-09-24T12:00:00Z') })
   await after.goto(BASE, { waitUntil: 'networkidle' })
-  for (let i = 0; i < 2; i++) {
-    await after.locator('.weeknav__arrow').first().click()
-    await after.waitForTimeout(250)
+  for (week of [1, 2]) {
+    while (Number((await after.locator('.weeknav__label strong').textContent()).replace(/\D/g, '')) !== week) {
+      const current = Number((await after.locator('.weeknav__label strong').textContent()).replace(/\D/g, ''))
+      await after.locator('.weeknav__arrow').nth(current < week ? 1 : 0).click()
+      await after.waitForTimeout(150)
+    }
     if (await after.locator('.btn--primary').isEnabled()) {
       await after.locator('.btn--primary').click()
       await after.waitForTimeout(900)
     }
+  }
+  while ((await after.locator('.weeknav__label strong').textContent()) !== 'Week 1') {
+    await after.locator('.weeknav__arrow').first().click()
+    await after.waitForTimeout(150)
   }
   await after.waitForSelector('.reveal')
   await after.evaluate(() => window.scrollTo(0, 0))

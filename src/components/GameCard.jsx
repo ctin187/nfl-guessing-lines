@@ -10,15 +10,14 @@ const NAMED_WINDOWS = new Set(['Thursday Night', 'Sunday Night', 'Monday Night',
 
 const SOURCE_LABEL = {
   captured: 'from your captured pre-game snapshot',
-  historical: 'from The Odds API historical snapshot',
-  live: 'from The Odds API live board',
+  live: 'live from The Odds API',
 }
 
 function GameCard({ game, guess, reveal, captured, phase, onGuess }) {
   const home = TEAM_BY_ID[game.home]
   const away = TEAM_BY_ID[game.away]
   const grade = reveal ? gradeGuess(guess, reveal.line) : null
-  const editable = phase === 'upcoming'
+  const editable = !reveal
 
   return (
     <article className={`card${reveal ? ' card--revealed' : ''}`}>
@@ -55,17 +54,6 @@ function GameCard({ game, guess, reveal, captured, phase, onGuess }) {
           home={home.id}
           away={away.id}
         />
-      ) : null}
-
-      {!editable && !reveal ? (
-        <div className="locked">
-          <span>
-            {guess === null || guess === undefined
-              ? 'No line entered'
-              : `Your line · ${describeSpread(guess, { home: home.id, away: away.id })}`}
-          </span>
-          <b className="num">{formatSpread(guess ?? null)}</b>
-        </div>
       ) : null}
 
       {reveal ? (

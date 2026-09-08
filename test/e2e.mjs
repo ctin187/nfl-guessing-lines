@@ -129,23 +129,35 @@ try {
   check(/Captured 16 lines/.test(await page.locator('.note').last().textContent()), 'capture stores every line')
   const hidden = await page.locator('.books').first().textContent()
   check(!/[-+]\d/.test(hidden), 'captured lines stay hidden before reveal')
+
+  // --- reveal, with nothing kicked off yet -----------------------------------
+  // The whole week is still upcoming here. Reveal must not be gated on kickoff.
+  const revealBtn = page.locator('.btn--primary')
+  check(await revealBtn.isEnabled(), 'reveal is available before any game kicks off')
+  check(/Reveal 16 lines/.test(await revealBtn.textContent()), 'reveal offers every unrevealed game')
+  await revealBtn.click()
+  await page.waitForSelector('.reveal', { timeout: 5000 })
+  check((await page.locator('.reveal').count()) === week1.length, 'every game reveals')
+  check(/Exact|Off by/.test(await page.locator('.grade').first().textContent()), 'guesses are graded')
+  check(/live from The Odds API/.test(await page.locator('.books').first().textContent()), 'reveal uses the current line')
+  check(/^\d+\.\d\d$/.test(await page.locator('.summary__stat b').first().textContent()), 'week scoreboard shows avg error')
+  check((await page.locator('.stepper__input').count()) === 0, 'inputs lock once revealed')
+  check(/All revealed/.test(await page.locator('.btn--primary').textContent()), 'nothing left to reveal')
   await page.close()
 
-  // --- reveal, with the clock past the games ---------------------------------
+  // --- week rollover, with the clock past week 1 -----------------------------
   const later = await ctx.newPage()
   watch(later)
-  await later.clock.install({ time: new Date('2026-09-16T12:00:00Z') })
+  await later.clock.install({ time: new Date('2026-09-24T12:00:00Z') })
   await later.goto(BASE_URL, { waitUntil: 'networkidle' })
   await later.waitForTimeout(300)
-  check((await later.locator('.weeknav__label strong').textContent()) === 'Week 2', 'a finished week rolls forward')
-  await later.locator('.weeknav__arrow').first().click()
-  check(/Reveal 16 lines/.test(await later.locator('.btn--primary').textContent()), 'reveal offers the finished games')
-  await later.locator('.btn--primary').click()
-  await later.waitForSelector('.reveal', { timeout: 5000 })
-  check((await later.locator('.reveal').count()) === week1.length, 'every game reveals')
-  check(/Exact|Off by/.test(await later.locator('.grade').first().textContent()), 'guesses are graded')
-  check(/^\d+\.\d\d$/.test(await later.locator('.summary__stat b').first().textContent()), 'week scoreboard shows avg error')
-  check((await later.locator('.stepper__input').count()) === 0, 'inputs stay locked after kickoff')
+  check(Number((await later.locator('.weeknav__label strong').textContent()).replace(/\D/g, '')) > 1,
+    'a finished week rolls forward')
+  while ((await later.locator('.weeknav__label strong').textContent()) !== 'Week 1') {
+    await later.locator('.weeknav__arrow').first().click()
+    await later.waitForTimeout(120)
+  }
+  check((await later.locator('.reveal').count()) === week1.length, 'revealed lines persist across sessions')
 
   // --- season sheet ----------------------------------------------------------
   await later.locator('.weeknav__label').click()

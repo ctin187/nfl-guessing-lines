@@ -57,6 +57,9 @@ hanging an off-market number should not drag the consensus.
 | ≤ 6 | wide |
 | > 6 | miss |
 
+A game's input locks once you reveal it — there is no point editing a guess you have
+already seen the answer to — but nothing else is time-gated.
+
 Taking the wrong favourite is called out separately — being off by two points is a
 different mistake from having the wrong team laying the points. The week header rolls
 it all up: average error, exact hits, within a point, worst miss.
@@ -74,34 +77,30 @@ Get a key at [the-odds-api.com](https://the-odds-api.com/) (the free tier is 500
 requests a month, which is far more than this app needs) and paste it into **Settings**.
 It is stored in your browser's `localStorage` and sent only to `api.the-odds-api.com`.
 
-### The one thing worth understanding
+### How Reveal works
 
-**The Odds API drops a game from the odds board as soon as it finishes.** The
-`/v4/sports/americanfootball_nfl/odds` endpoint only returns games that have not
-started. So "fetch the line after the game is played" is not something a free key can
-do on its own — by then the line is gone.
+Reveal pulls the **current** consensus straight from The Odds API, whenever you tap it.
+There is no waiting for kickoff and no historical lookup — you can set a line and
+reveal it a minute later if you want to see how close you were to where the market
+opened.
 
-The app handles this by **capturing** lines before kickoff:
+One wrinkle worth knowing: **The Odds API drops a game from the board the moment it
+finishes.** So for a game that has already been played, there is nothing live left to
+fetch. The app covers that by quietly **capturing** the consensus for upcoming games
+and keeping it locally — hidden from you, the card only says a line was captured, never
+what it was. Reveal then works like this:
 
-1. While a week still has games to play, the app snapshots the consensus for each of
-   them and stores it locally. That snapshot is hidden from you — the card just says
-   a line was captured, never what it was.
-2. When you hit **Reveal** after the games are over, it shows those captured lines.
+1. **The live board**, for any game still listed. This is the number you get almost
+   every time.
+2. **Your captured snapshot**, for games the board has already dropped.
 
-Capture runs automatically at most once an hour whenever you open a week with games
-still to play (toggleable in Settings), and there is a **Capture lines** button for
-doing it by hand. Open the week once on game day and you will have a closing-ish line
-to grade against.
+If neither has a line — most often because books have not posted that week yet — the
+app says so instead of inventing one.
 
-Reveal falls back in this order:
-
-1. **Your captured snapshot** — free, and genuinely a pre-game number.
-2. **The historical odds endpoint** — the true closing line at kickoff. Requires a
-   paid Odds API plan; enable it in Settings. If your key cannot use it, the app
-   silently falls back rather than failing.
-3. **The live board** — for anything somehow still listed.
-
-If none of those has a line, the app says so plainly instead of inventing one.
+Capturing runs on its own at most once an hour when you open a week with games still to
+play, and there is a **Capture lines** button to do it by hand. You do not have to
+think about it; it just means a line you revealed weeks later still has something to
+compare against.
 
 ### Request cost
 
@@ -109,11 +108,11 @@ If none of those has a line, the app says so plainly instead of inventing one.
 |---|---|
 | Testing your key | 0 |
 | Capture lines | 1 per region selected |
-| Reveal from captured snapshots | 0 |
-| Reveal via historical odds | 1 per region, per distinct kickoff time |
+| Reveal | 1 per region selected |
+| Reveal that falls back to captured snapshots | 0 |
 
-Rate limits, an expired key, a dead connection and a plan restriction each produce a
-specific message rather than a generic failure.
+Rate limits, an expired key and a dead connection each produce a specific message
+rather than a generic failure.
 
 ---
 

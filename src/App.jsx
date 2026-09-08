@@ -8,9 +8,7 @@ import { useOnline } from './hooks/useOnline.js'
 import { usePersistentState } from './hooks/usePersistentState.js'
 import { KEYS, remove } from './lib/storage.js'
 import { consensusFromBookmakers, flipConsensus, gradeGuess, summarize } from './lib/lines.js'
-import {
-  fetchHistoricalSpreads, fetchUpcomingSpreads, OddsApiError,
-} from './lib/oddsApi.js'
+import { fetchUpcomingSpreads, OddsApiError } from './lib/oddsApi.js'
 import {
   bundledSchedule, currentWeek, dayKey, formatDayHeading, indexEventsByGame, kickedOff, likelyFinal,
   normalizeSchedule,
@@ -20,7 +18,6 @@ const DEFAULT_SETTINGS = {
   apiKey: '',
   regions: 'us',
   autoCapture: true,
-  useHistorical: false,
 }
 
 const AUTO_CAPTURE_INTERVAL = 60 * 60 * 1000 // at most one automatic capture an hour
@@ -106,9 +103,9 @@ export default function App() {
 
   const entered = games.filter((g) => Number.isFinite(guesses[g.id])).length
   const revealedGames = games.filter((g) => reveals[g.id])
-  const finalGames = games.filter((g) => phaseOf(g) === 'final')
   const upcomingGames = games.filter((g) => phaseOf(g) === 'upcoming')
-  const pendingReveal = finalGames.filter((g) => !reveals[g.id])
+  // Reveal is not gated on kickoff: any game you have not revealed is fair game.
+  const pendingReveal = games.filter((g) => !reveals[g.id])
 
   const summary = useMemo(
     () => summarize(revealedGames.map((g) => gradeGuess(guesses[g.id], reveals[g.id].line))),
@@ -230,9 +227,9 @@ export default function App() {
   }, [settings.autoCapture, settings.apiKey, upcomingGames.length, ui.lastCaptureAt, captureLines])
 
   /**
-   * Reveal: captured snapshots first (free and genuinely pre-game), then the
-   * historical endpoint when the plan allows it, then the live board as a
-   * last resort for anything still listed.
+   * Reveal pulls the current consensus straight from The Odds API, whenever you
+   * ask for it. A game the board no longer lists - because it has finished -
+   * falls back to the snapshot captured before kickoff, if there is one.
    */
   const revealWeek = useCallback(async () => {
     if (!pendingReveal.length) return
@@ -242,49 +239,13 @@ export default function App() {
     setBusy('reveal')
     setStatus(null)
 
+    const pending = pendingReveal
     const resolved = {}
     const notes = []
-    for (const game of pendingReveal) {
-      const snap = snapshots[game.id]
-      if (snap) resolved[game.id] = { ...snap, source: 'captured', revealedAt: new Date().toISOString() }
-    }
-    let missing = pendingReveal.filter((g) => !resolved[g.id])
     const key = settings.apiKey.trim()
 
     try {
-      if (missing.length && key && settings.useHistorical) {
-        // One snapshot per distinct kickoff time covers every game in that slot.
-        const slots = [...new Set(missing.map((g) => g.kickoffMs))].sort((a, b) => a - b)
-        for (const slotMs of slots) {
-          if (controller.signal.aborted) return
-          try {
-            const at = new Date(slotMs - 60000).toISOString()
-            const { events, quota: q } = await fetchHistoricalSpreads({
-              apiKey: key, regions: settings.regions, date: at, signal: controller.signal,
-            })
-            noteQuota(q)
-            const matched = indexEventsByGame(events, schedule)
-            for (const game of missing) {
-              if (game.kickoffMs !== slotMs) continue
-              const match = matched.get(game.id)
-              if (!match) continue
-              const record = toRecord(match, 'historical', at)
-              if (record) resolved[game.id] = { ...record, revealedAt: new Date().toISOString() }
-            }
-          } catch (err) {
-            if (err?.code === 'aborted') return
-            if (err?.code === 'plan' || err?.code === 'auth') {
-              notes.push('Historical odds need a paid Odds API plan; used captured snapshots instead.')
-              break
-            }
-            notes.push(describeError(err))
-            break
-          }
-        }
-        missing = pendingReveal.filter((g) => !resolved[g.id])
-      }
-
-      if (missing.length && key) {
+      if (key && online) {
         try {
           const { events, quota: q } = await fetchUpcomingSpreads({
             apiKey: key, regions: settings.regions, signal: controller.signal,
@@ -292,7 +253,7 @@ export default function App() {
           noteQuota(q)
           const matched = indexEventsByGame(events, schedule)
           const at = new Date().toISOString()
-          for (const game of missing) {
+          for (const game of pending) {
             const match = matched.get(game.id)
             if (!match) continue
             const record = toRecord(match, 'live', at)
@@ -304,25 +265,41 @@ export default function App() {
         }
       }
 
+      // Finished games drop off the live board, so use what we captured earlier.
+      const at = new Date().toISOString()
+      for (const game of pending) {
+        if (resolved[game.id]) continue
+        const snap = snapshots[game.id]
+        if (snap) resolved[game.id] = { ...snap, source: 'captured', revealedAt: at }
+      }
+
       const count = Object.keys(resolved).length
       if (count) setReveals((prev) => ({ ...prev, ...resolved }))
 
-      const stillMissing = pendingReveal.length - count
-      if (count && !stillMissing) {
+      if (count === pending.length) {
         setStatus({ tone: 'ok', text: `Revealed ${count} line${count === 1 ? '' : 's'}.` })
       } else if (count) {
-        notes.unshift(`Revealed ${count} of ${pendingReveal.length}.`)
-        setStatus({ tone: 'warn', text: `${notes.join(' ')} The rest have no market line on record — The Odds API drops games once they finish, so capture lines before kickoff (or enable historical odds) to have one to compare against.` })
+        setStatus({
+          tone: 'warn',
+          text: `${notes.length ? `${notes.join(' ')} ` : ''}Revealed ${count} of ${pending.length}. `
+            + 'The rest have no spread posted yet — books usually put NFL sides up a week or so out.',
+        })
       } else if (!key) {
-        setStatus({ tone: 'warn', text: 'No captured lines for these games, and no API key set. Add a key in Settings, then capture lines before kickoff each week.' })
+        setStatus({ tone: 'warn', text: 'Add your Odds API key in Settings first, then reveal.' })
+      } else if (!online) {
+        setStatus({ tone: 'warn', text: 'You are offline, and none of these games has a captured line to fall back on.' })
       } else {
-        notes.push('No market line on record for these games. The Odds API drops a game from the live board once it finishes, so capture lines before kickoff (or turn on historical odds) to have one to compare against.')
-        setStatus({ tone: 'warn', text: notes.join(' ') })
+        setStatus({
+          tone: 'warn',
+          text: notes.length
+            ? notes.join(' ')
+            : 'The Odds API has no spread for these games right now. Books usually post NFL sides about a week out, so try again closer to kickoff.',
+        })
       }
     } finally {
       setBusy(null)
     }
-  }, [pendingReveal, snapshots, settings, schedule, setReveals, noteQuota])
+  }, [pendingReveal, snapshots, settings, schedule, online, setReveals, noteQuota])
 
   const wipe = () => {
     for (const key of [KEYS.guesses, KEYS.snapshots, KEYS.reveals]) remove(key)
@@ -489,9 +466,7 @@ export default function App() {
               ? 'Revealing'
               : pendingReveal.length
                 ? `Reveal ${pendingReveal.length} line${pendingReveal.length === 1 ? '' : 's'}`
-                : finalGames.length
-                  ? 'All revealed'
-                  : 'Reveal lines'}
+                : 'All revealed'}
           </button>
         </div>
 

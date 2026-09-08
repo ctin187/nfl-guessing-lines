@@ -144,22 +144,6 @@ export default function SettingsSheet({
         </div>
       </div>
 
-      <div className="switch">
-        <input
-          id="historical"
-          type="checkbox"
-          checked={settings.useHistorical}
-          onChange={(e) => set({ useHistorical: e.target.checked })}
-        />
-        <div>
-          <label htmlFor="historical"><b>Use historical odds on reveal</b></label>
-          <small>
-            Pulls the closing line straight from The Odds API at kickoff time. Needs a paid plan; with a
-            free key the app quietly falls back to your captured snapshots.
-          </small>
-        </div>
-      </div>
-
       <hr className="divider" />
 
       <div className="field">
