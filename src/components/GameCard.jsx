@@ -4,6 +4,10 @@ import { TEAM_BY_ID } from '../data/teams.js'
 import { describeSpread, formatSpread, gradeGuess } from '../lib/lines.js'
 import { formatKickoff } from '../lib/schedule.js'
 
+// Only name a window that says something the date and time do not. "Wednesday"
+// next to a Wednesday date is noise; "Sunday Night" is not.
+const NAMED_WINDOWS = new Set(['Thursday Night', 'Sunday Night', 'Monday Night', 'Sunday morning'])
+
 const SOURCE_LABEL = {
   captured: 'from your captured pre-game snapshot',
   historical: 'from The Odds API historical snapshot',
@@ -20,7 +24,9 @@ function GameCard({ game, guess, reveal, captured, phase, onGuess }) {
     <article className={`card${reveal ? ' card--revealed' : ''}`}>
       <div className="card__meta">
         <span className="num">{formatKickoff(game)}</span>
-        {game.slot ? <><span className="dot">·</span><span>{game.slot}</span></> : null}
+        {NAMED_WINDOWS.has(game.slot)
+          ? <><span className="dot">·</span><span>{game.slot}</span></>
+          : null}
         {phase === 'live' ? <span className="card__status card__status--live">In progress</span> : null}
         {phase === 'final' ? <span className="card__status card__status--final">Final</span> : null}
       </div>
@@ -36,6 +42,10 @@ function GameCard({ game, guess, reveal, captured, phase, onGuess }) {
           <span className="matchup__fav">Home</span>
         </div>
       </div>
+
+      {game.neutralSite ? (
+        <p className="card__venue">Neutral site{game.venue ? ` · ${game.venue}` : ''}</p>
+      ) : null}
 
       {editable ? (
         <SpreadInput

@@ -11,6 +11,7 @@ test('the bundled schedule is a complete 18-week regular season', () => {
   assert.equal(schedule.season, 2026)
   assert.equal(schedule.weeks, 18)
   assert.equal(schedule.games.length, 272)
+  assert.equal(schedule.provisional, false, 'shipped schedule should be real, not generated')
   const per = {}
   for (const g of schedule.games) {
     per[g.home] = (per[g.home] || 0) + 1
@@ -37,17 +38,41 @@ test('no team is booked twice in a week, and every team gets exactly one bye', (
   for (const [team, n] of Object.entries(byeCount)) assert.equal(n, 1, `${team} has ${n} byes`)
 })
 
-test('every matchup is unique and division rivals meet home and away', () => {
+test('every matchup is unique', () => {
   const pairs = new Set()
   for (const g of schedule.games) {
     const key = `${g.away}@${g.home}`
     assert.ok(!pairs.has(key), `duplicate ${key}`)
     pairs.add(key)
   }
+})
+
+test('kickoffs are real, ordered, and inside the season window', () => {
+  const first = schedule.games[0].kickoffMs
+  const last = schedule.games[schedule.games.length - 1].kickoffMs
+  assert.ok(first >= Date.parse('2026-09-01T00:00:00Z'), 'season starts in September')
+  assert.ok(last <= Date.parse('2027-01-15T00:00:00Z'), 'season ends by mid-January')
   for (const g of schedule.games) {
-    if (g.kind !== 'division') continue
-    assert.ok(pairs.has(`${g.home}@${g.away}`), `${g.away}@${g.home} has no return fixture`)
+    assert.ok(Number.isFinite(g.kickoffMs), `${g.id} has an unparseable kickoff`)
   }
+  // Weeks run in order: no week's first game starts before the previous week's.
+  for (let w = 2; w <= schedule.weeks; w++) {
+    const prev = schedule.byWeek.get(w - 1)
+    const cur = schedule.byWeek.get(w)
+    assert.ok(cur[0].kickoffMs > prev[0].kickoffMs, `week ${w} does not follow week ${w - 1}`)
+  }
+})
+
+test('international games carry their venue', () => {
+  const neutral = schedule.games.filter((g) => g.neutralSite)
+  assert.ok(neutral.length > 0, 'the 2026 season has neutral-site games')
+  for (const g of neutral) assert.ok(g.venue, `${g.id} is neutral-site but has no venue`)
+})
+
+test('no betting data is bundled with the schedule', () => {
+  // The exercise is guessing the line; shipping one would be shipping the answer.
+  const raw = JSON.stringify(schedule.games)
+  assert.ok(!/spread|moneyline|odds|"line"/i.test(raw), 'schedule leaks market data')
 })
 
 test('normalizeSchedule accepts loose imports and rejects empty ones', () => {
@@ -117,7 +142,9 @@ test('unmatched or unknown events are dropped rather than guessed at', () => {
   assert.equal(indexEventsByGame([asEvent(game, { drift: 40 * 86400000 })], schedule).size, 0)
 })
 
-test('team resolution copes with the shared-market clubs', () => {
+test('team resolution copes with the shared-market clubs and feed spellings', () => {
+  assert.equal(resolveTeamId('LA'), 'LAR')   // nflverse abbreviates the Rams this way
+  assert.equal(resolveTeamId('WSH'), 'WAS')
   assert.equal(resolveTeamId('New York Jets'), 'NYJ')
   assert.equal(resolveTeamId('New York Giants'), 'NYG')
   assert.equal(resolveTeamId('Los Angeles Rams'), 'LAR')

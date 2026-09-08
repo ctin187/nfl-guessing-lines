@@ -8,12 +8,13 @@
     "dev": "vite",
     "build": "vite build && node scripts/build-sw.mjs",
     "preview": "vite preview",
-    "schedule:generate": "node scripts/build-schedule.mjs",
-    "schedule:fetch": "node scripts/fetch-schedule.mjs",
-    "test": "node --test test/*.test.mjs",
-    "icons": "node scripts/build-icons.mjs",
     "lint": "eslint .",
-    "test:e2e": "node test/e2e.mjs"
+    "test": "node --test test/*.test.mjs",
+    "test:e2e": "node test/e2e.mjs",
+    "schedule:import": "node scripts/import-schedule.mjs",
+    "schedule:fetch": "node scripts/fetch-schedule.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

@@ -23,7 +23,8 @@ export function normalizeSchedule(raw) {
       kickoff: new Date(kickoffMs).toISOString(),
       kickoffMs,
       slot: g.slot || '',
-      kind: g.kind || '',
+      neutralSite: Boolean(g.neutralSite ?? g.neutral_site),
+      venue: g.venue || g.stadium || '',
       provisional: g.provisional ?? raw.provisional ?? false,
     })
   }

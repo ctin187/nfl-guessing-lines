@@ -69,7 +69,7 @@ const LOOKUP = (() => {
   const aliases = {
     'ny jets': 'NYJ', 'new york jets': 'NYJ', 'jets': 'NYJ',
     'ny giants': 'NYG', 'new york giants': 'NYG', 'giants': 'NYG',
-    'la rams': 'LAR', 'los angeles rams': 'LAR', 'st louis rams': 'LAR', 'rams': 'LAR',
+    'la': 'LAR', 'la rams': 'LAR', 'los angeles rams': 'LAR', 'st louis rams': 'LAR', 'rams': 'LAR',
     'la chargers': 'LAC', 'los angeles chargers': 'LAC', 'san diego chargers': 'LAC', 'chargers': 'LAC',
     'lar': 'LAR', 'lac': 'LAC', 'lv': 'LV', 'lvr': 'LV', 'oak': 'LV', 'oakland raiders': 'LV',
     'was': 'WAS', 'wsh': 'WAS', 'washington football team': 'WAS', 'washington redskins': 'WAS',
