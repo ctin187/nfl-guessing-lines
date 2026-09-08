@@ -1,0 +1,23 @@
+{
+  "name": "nfl-guessing-lines",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mobile-first NFL line-guessing app for the 2026 season.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "schedule:generate": "node scripts/build-schedule.mjs",
+    "schedule:fetch": "node scripts/fetch-schedule.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.2.2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Final 2025 regular-season order of finish, 1st to 4th, per division. Two of every team's 17 games (one intraconference pair-up, one interconference 17th game) are set by these placings, so correcting this file changes the generated matchups. The values below are a PLACEHOLDER ordering (alphabetical) - replace them with the real 2025 standings, then run: npm run schedule:generate",
+  "_placeholder": true,
+  "AFC East": ["BUF", "MIA", "NE", "NYJ"],
+  "AFC North": ["BAL", "CIN", "CLE", "PIT"],
+  "AFC South": ["HOU", "IND", "JAX", "TEN"],
+  "AFC West": ["DEN", "KC", "LAC", "LV"],
+  "NFC East": ["DAL", "NYG", "PHI", "WAS"],
+  "NFC North": ["CHI", "DET", "GB", "MIN"],
+  "NFC South": ["ATL", "CAR", "NO", "TB"],
+  "NFC West": ["ARI", "LAR", "SEA", "SF"]
+}

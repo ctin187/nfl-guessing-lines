@@ -1,0 +1,2785 @@
+{
+  "season": 2026,
+  "seasonType": "regular",
+  "weeks": 18,
+  "generatedAt": "2026-09-08T01:28:53.540Z",
+  "source": "generated",
+  "provisional": true,
+  "note": "Opponents are derived from the NFL scheduling formula and are expected to be correct. Week placement and kickoff times are generated placeholders, as are the 17th-game division pairings and any matchup that depends on the 2025 order of finish in scripts/standings-2025.json. Replace with the released schedule via `npm run schedule:fetch` or the in-app import.",
+  "byes": {
+    "5": [
+      "IND",
+      "LV"
+    ],
+    "6": [
+      "DET",
+      "HOU"
+    ],
+    "7": [
+      "BAL",
+      "CAR",
+      "JAX",
+      "TEN"
+    ],
+    "8": [
+      "LAR",
+      "NYJ",
+      "SF",
+      "WAS"
+    ],
+    "9": [
+      "DEN",
+      "LAC",
+      "NE",
+      "TB"
+    ],
+    "10": [
+      "CHI",
+      "MIA",
+      "PHI",
+      "PIT"
+    ],
+    "11": [
+      "ARI",
+      "ATL",
+      "CIN",
+      "SEA"
+    ],
+    "12": [
+      "GB",
+      "KC",
+      "MIN",
+      "NYG"
+    ],
+    "13": [
+      "BUF",
+      "CLE"
+    ],
+    "14": [
+      "DAL",
+      "NO"
+    ]
+  },
+  "games": [
+    {
+      "id": "2026-W01-IND-JAX",
+      "week": 1,
+      "away": "IND",
+      "home": "JAX",
+      "kickoff": "2026-09-11T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-BUF-NE",
+      "week": 1,
+      "away": "BUF",
+      "home": "NE",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-CIN-ATL",
+      "week": 1,
+      "away": "CIN",
+      "home": "ATL",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-CLE-GB",
+      "week": 1,
+      "away": "CLE",
+      "home": "GB",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-HOU-BAL",
+      "week": 1,
+      "away": "HOU",
+      "home": "BAL",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-LAR-DET",
+      "week": 1,
+      "away": "LAR",
+      "home": "DET",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-LV-SEA",
+      "week": 1,
+      "away": "LV",
+      "home": "SEA",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-PHI-DAL",
+      "week": 1,
+      "away": "PHI",
+      "home": "DAL",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-SF-NYG",
+      "week": 1,
+      "away": "SF",
+      "home": "NYG",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-TEN-PIT",
+      "week": 1,
+      "away": "TEN",
+      "home": "PIT",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-WAS-TB",
+      "week": 1,
+      "away": "WAS",
+      "home": "TB",
+      "kickoff": "2026-09-13T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-KC-MIA",
+      "week": 1,
+      "away": "KC",
+      "home": "MIA",
+      "kickoff": "2026-09-13T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-LAC-NO",
+      "week": 1,
+      "away": "LAC",
+      "home": "NO",
+      "kickoff": "2026-09-13T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-NYJ-DEN",
+      "week": 1,
+      "away": "NYJ",
+      "home": "DEN",
+      "kickoff": "2026-09-13T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-CAR-MIN",
+      "week": 1,
+      "away": "CAR",
+      "home": "MIN",
+      "kickoff": "2026-09-14T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W01-ARI-CHI",
+      "week": 1,
+      "away": "ARI",
+      "home": "CHI",
+      "kickoff": "2026-09-15T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-SF-KC",
+      "week": 2,
+      "away": "SF",
+      "home": "KC",
+      "kickoff": "2026-09-18T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-CAR-ATL",
+      "week": 2,
+      "away": "CAR",
+      "home": "ATL",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-CHI-GB",
+      "week": 2,
+      "away": "CHI",
+      "home": "GB",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-CLE-BAL",
+      "week": 2,
+      "away": "CLE",
+      "home": "BAL",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-DAL-LAR",
+      "week": 2,
+      "away": "DAL",
+      "home": "LAR",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-DET-MIN",
+      "week": 2,
+      "away": "DET",
+      "home": "MIN",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-MIA-BUF",
+      "week": 2,
+      "away": "MIA",
+      "home": "BUF",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-NYG-IND",
+      "week": 2,
+      "away": "NYG",
+      "home": "IND",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-SEA-PHI",
+      "week": 2,
+      "away": "SEA",
+      "home": "PHI",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-TB-NO",
+      "week": 2,
+      "away": "TB",
+      "home": "NO",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-TEN-CIN",
+      "week": 2,
+      "away": "TEN",
+      "home": "CIN",
+      "kickoff": "2026-09-20T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-LAC-DEN",
+      "week": 2,
+      "away": "LAC",
+      "home": "DEN",
+      "kickoff": "2026-09-20T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-LV-PIT",
+      "week": 2,
+      "away": "LV",
+      "home": "PIT",
+      "kickoff": "2026-09-20T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-NYJ-NE",
+      "week": 2,
+      "away": "NYJ",
+      "home": "NE",
+      "kickoff": "2026-09-20T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-HOU-ARI",
+      "week": 2,
+      "away": "HOU",
+      "home": "ARI",
+      "kickoff": "2026-09-21T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W02-JAX-WAS",
+      "week": 2,
+      "away": "JAX",
+      "home": "WAS",
+      "kickoff": "2026-09-22T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-TEN-DAL",
+      "week": 3,
+      "away": "TEN",
+      "home": "DAL",
+      "kickoff": "2026-09-25T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-ARI-LAR",
+      "week": 3,
+      "away": "ARI",
+      "home": "LAR",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-ATL-CHI",
+      "week": 3,
+      "away": "ATL",
+      "home": "CHI",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-BAL-IND",
+      "week": 3,
+      "away": "BAL",
+      "home": "IND",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-CIN-DET",
+      "week": 3,
+      "away": "CIN",
+      "home": "DET",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-GB-TB",
+      "week": 3,
+      "away": "GB",
+      "home": "TB",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-MIA-LAC",
+      "week": 3,
+      "away": "MIA",
+      "home": "LAC",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-MIN-NO",
+      "week": 3,
+      "away": "MIN",
+      "home": "NO",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-NYJ-BUF",
+      "week": 3,
+      "away": "NYJ",
+      "home": "BUF",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-PHI-JAX",
+      "week": 3,
+      "away": "PHI",
+      "home": "JAX",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-SEA-SF",
+      "week": 3,
+      "away": "SEA",
+      "home": "SF",
+      "kickoff": "2026-09-27T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-HOU-WAS",
+      "week": 3,
+      "away": "HOU",
+      "home": "WAS",
+      "kickoff": "2026-09-27T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-NE-LV",
+      "week": 3,
+      "away": "NE",
+      "home": "LV",
+      "kickoff": "2026-09-27T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-PIT-CLE",
+      "week": 3,
+      "away": "PIT",
+      "home": "CLE",
+      "kickoff": "2026-09-27T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-KC-DEN",
+      "week": 3,
+      "away": "KC",
+      "home": "DEN",
+      "kickoff": "2026-09-28T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W03-NYG-CAR",
+      "week": 3,
+      "away": "NYG",
+      "home": "CAR",
+      "kickoff": "2026-09-29T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-DET-NO",
+      "week": 4,
+      "away": "DET",
+      "home": "NO",
+      "kickoff": "2026-10-02T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-CLE-TB",
+      "week": 4,
+      "away": "CLE",
+      "home": "TB",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-DAL-HOU",
+      "week": 4,
+      "away": "DAL",
+      "home": "HOU",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-DEN-BAL",
+      "week": 4,
+      "away": "DEN",
+      "home": "BAL",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-GB-CAR",
+      "week": 4,
+      "away": "GB",
+      "home": "CAR",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-IND-PHI",
+      "week": 4,
+      "away": "IND",
+      "home": "PHI",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-KC-CIN",
+      "week": 4,
+      "away": "KC",
+      "home": "CIN",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-LAC-SF",
+      "week": 4,
+      "away": "LAC",
+      "home": "SF",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-LV-ARI",
+      "week": 4,
+      "away": "LV",
+      "home": "ARI",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-MIN-ATL",
+      "week": 4,
+      "away": "MIN",
+      "home": "ATL",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-SEA-LAR",
+      "week": 4,
+      "away": "SEA",
+      "home": "LAR",
+      "kickoff": "2026-10-04T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-NE-BUF",
+      "week": 4,
+      "away": "NE",
+      "home": "BUF",
+      "kickoff": "2026-10-04T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-NYG-WAS",
+      "week": 4,
+      "away": "NYG",
+      "home": "WAS",
+      "kickoff": "2026-10-04T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-NYJ-TEN",
+      "week": 4,
+      "away": "NYJ",
+      "home": "TEN",
+      "kickoff": "2026-10-04T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-PIT-JAX",
+      "week": 4,
+      "away": "PIT",
+      "home": "JAX",
+      "kickoff": "2026-10-05T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W04-MIA-CHI",
+      "week": 4,
+      "away": "MIA",
+      "home": "CHI",
+      "kickoff": "2026-10-06T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-TEN-HOU",
+      "week": 5,
+      "away": "TEN",
+      "home": "HOU",
+      "kickoff": "2026-10-09T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-CIN-JAX",
+      "week": 5,
+      "away": "CIN",
+      "home": "JAX",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-CLE-CAR",
+      "week": 5,
+      "away": "CLE",
+      "home": "CAR",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-DAL-SF",
+      "week": 5,
+      "away": "DAL",
+      "home": "SF",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-DET-CHI",
+      "week": 5,
+      "away": "DET",
+      "home": "CHI",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-GB-NE",
+      "week": 5,
+      "away": "GB",
+      "home": "NE",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-KC-ARI",
+      "week": 5,
+      "away": "KC",
+      "home": "ARI",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-NO-TB",
+      "week": 5,
+      "away": "NO",
+      "home": "TB",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-NYJ-LAC",
+      "week": 5,
+      "away": "NYJ",
+      "home": "LAC",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-PIT-ATL",
+      "week": 5,
+      "away": "PIT",
+      "home": "ATL",
+      "kickoff": "2026-10-11T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-BAL-BUF",
+      "week": 5,
+      "away": "BAL",
+      "home": "BUF",
+      "kickoff": "2026-10-11T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-MIA-NYG",
+      "week": 5,
+      "away": "MIA",
+      "home": "NYG",
+      "kickoff": "2026-10-11T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-SEA-DEN",
+      "week": 5,
+      "away": "SEA",
+      "home": "DEN",
+      "kickoff": "2026-10-11T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-PHI-LAR",
+      "week": 5,
+      "away": "PHI",
+      "home": "LAR",
+      "kickoff": "2026-10-12T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W05-MIN-WAS",
+      "week": 5,
+      "away": "MIN",
+      "home": "WAS",
+      "kickoff": "2026-10-13T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-MIN-MIA",
+      "week": 6,
+      "away": "MIN",
+      "home": "MIA",
+      "kickoff": "2026-10-16T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-DAL-JAX",
+      "week": 6,
+      "away": "DAL",
+      "home": "JAX",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-DEN-KC",
+      "week": 6,
+      "away": "DEN",
+      "home": "KC",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-GB-BUF",
+      "week": 6,
+      "away": "GB",
+      "home": "BUF",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-IND-CIN",
+      "week": 6,
+      "away": "IND",
+      "home": "CIN",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-NO-SEA",
+      "week": 6,
+      "away": "NO",
+      "home": "SEA",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-NYJ-CHI",
+      "week": 6,
+      "away": "NYJ",
+      "home": "CHI",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-SF-LV",
+      "week": 6,
+      "away": "SF",
+      "home": "LV",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-TEN-PHI",
+      "week": 6,
+      "away": "TEN",
+      "home": "PHI",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-WAS-NYG",
+      "week": 6,
+      "away": "WAS",
+      "home": "NYG",
+      "kickoff": "2026-10-18T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-ATL-ARI",
+      "week": 6,
+      "away": "ATL",
+      "home": "ARI",
+      "kickoff": "2026-10-18T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-CAR-PIT",
+      "week": 6,
+      "away": "CAR",
+      "home": "PIT",
+      "kickoff": "2026-10-18T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-CLE-NE",
+      "week": 6,
+      "away": "CLE",
+      "home": "NE",
+      "kickoff": "2026-10-18T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-BAL-TB",
+      "week": 6,
+      "away": "BAL",
+      "home": "TB",
+      "kickoff": "2026-10-19T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W06-LAC-LAR",
+      "week": 6,
+      "away": "LAC",
+      "home": "LAR",
+      "kickoff": "2026-10-20T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-CLE-IND",
+      "week": 7,
+      "away": "CLE",
+      "home": "IND",
+      "kickoff": "2026-10-23T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-ARI-LAC",
+      "week": 7,
+      "away": "ARI",
+      "home": "LAC",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-BUF-HOU",
+      "week": 7,
+      "away": "BUF",
+      "home": "HOU",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-DAL-ATL",
+      "week": 7,
+      "away": "DAL",
+      "home": "ATL",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-KC-SEA",
+      "week": 7,
+      "away": "KC",
+      "home": "SEA",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-NE-MIN",
+      "week": 7,
+      "away": "NE",
+      "home": "MIN",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-NYJ-WAS",
+      "week": 7,
+      "away": "NYJ",
+      "home": "WAS",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-PHI-SF",
+      "week": 7,
+      "away": "PHI",
+      "home": "SF",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-PIT-NO",
+      "week": 7,
+      "away": "PIT",
+      "home": "NO",
+      "kickoff": "2026-10-25T17:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-CIN-MIA",
+      "week": 7,
+      "away": "CIN",
+      "home": "MIA",
+      "kickoff": "2026-10-25T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-DEN-LAR",
+      "week": 7,
+      "away": "DEN",
+      "home": "LAR",
+      "kickoff": "2026-10-25T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-DET-NYG",
+      "week": 7,
+      "away": "DET",
+      "home": "NYG",
+      "kickoff": "2026-10-25T20:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-LV-TB",
+      "week": 7,
+      "away": "LV",
+      "home": "TB",
+      "kickoff": "2026-10-26T00:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W07-GB-CHI",
+      "week": 7,
+      "away": "GB",
+      "home": "CHI",
+      "kickoff": "2026-10-27T00:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-MIN-DET",
+      "week": 8,
+      "away": "MIN",
+      "home": "DET",
+      "kickoff": "2026-10-30T00:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-CHI-TB",
+      "week": 8,
+      "away": "CHI",
+      "home": "TB",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-CIN-NO",
+      "week": 8,
+      "away": "CIN",
+      "home": "NO",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-JAX-IND",
+      "week": 8,
+      "away": "JAX",
+      "home": "IND",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-KC-LV",
+      "week": 8,
+      "away": "KC",
+      "home": "LV",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-LAC-BUF",
+      "week": 8,
+      "away": "LAC",
+      "home": "BUF",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-NYG-TEN",
+      "week": 8,
+      "away": "NYG",
+      "home": "TEN",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-PIT-BAL",
+      "week": 8,
+      "away": "PIT",
+      "home": "BAL",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-SEA-GB",
+      "week": 8,
+      "away": "SEA",
+      "home": "GB",
+      "kickoff": "2026-11-01T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-ARI-DEN",
+      "week": 8,
+      "away": "ARI",
+      "home": "DEN",
+      "kickoff": "2026-11-01T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-DAL-PHI",
+      "week": 8,
+      "away": "DAL",
+      "home": "PHI",
+      "kickoff": "2026-11-01T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-HOU-CLE",
+      "week": 8,
+      "away": "HOU",
+      "home": "CLE",
+      "kickoff": "2026-11-01T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-NE-MIA",
+      "week": 8,
+      "away": "NE",
+      "home": "MIA",
+      "kickoff": "2026-11-02T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W08-ATL-CAR",
+      "week": 8,
+      "away": "ATL",
+      "home": "CAR",
+      "kickoff": "2026-11-03T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-LAR-WAS",
+      "week": 9,
+      "away": "LAR",
+      "home": "WAS",
+      "kickoff": "2026-11-06T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-ARI-PHI",
+      "week": 9,
+      "away": "ARI",
+      "home": "PHI",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-BUF-LV",
+      "week": 9,
+      "away": "BUF",
+      "home": "LV",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-CHI-DET",
+      "week": 9,
+      "away": "CHI",
+      "home": "DET",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-JAX-NYG",
+      "week": 9,
+      "away": "JAX",
+      "home": "NYG",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-KC-CAR",
+      "week": 9,
+      "away": "KC",
+      "home": "CAR",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-PIT-MIN",
+      "week": 9,
+      "away": "PIT",
+      "home": "MIN",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-SEA-DAL",
+      "week": 9,
+      "away": "SEA",
+      "home": "DAL",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-TEN-SF",
+      "week": 9,
+      "away": "TEN",
+      "home": "SF",
+      "kickoff": "2026-11-08T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-ATL-BAL",
+      "week": 9,
+      "away": "ATL",
+      "home": "BAL",
+      "kickoff": "2026-11-08T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-CIN-HOU",
+      "week": 9,
+      "away": "CIN",
+      "home": "HOU",
+      "kickoff": "2026-11-08T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-MIA-IND",
+      "week": 9,
+      "away": "MIA",
+      "home": "IND",
+      "kickoff": "2026-11-08T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-NO-CLE",
+      "week": 9,
+      "away": "NO",
+      "home": "CLE",
+      "kickoff": "2026-11-09T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W09-NYJ-GB",
+      "week": 9,
+      "away": "NYJ",
+      "home": "GB",
+      "kickoff": "2026-11-10T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-DEN-ATL",
+      "week": 10,
+      "away": "DEN",
+      "home": "ATL",
+      "kickoff": "2026-11-13T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-CAR-LAR",
+      "week": 10,
+      "away": "CAR",
+      "home": "LAR",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-CIN-BAL",
+      "week": 10,
+      "away": "CIN",
+      "home": "BAL",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-HOU-NYG",
+      "week": 10,
+      "away": "HOU",
+      "home": "NYG",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-JAX-CLE",
+      "week": 10,
+      "away": "JAX",
+      "home": "CLE",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-KC-NYJ",
+      "week": 10,
+      "away": "KC",
+      "home": "NYJ",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-LV-LAC",
+      "week": 10,
+      "away": "LV",
+      "home": "LAC",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-SF-SEA",
+      "week": 10,
+      "away": "SF",
+      "home": "SEA",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-TB-MIN",
+      "week": 10,
+      "away": "TB",
+      "home": "MIN",
+      "kickoff": "2026-11-15T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-BUF-DAL",
+      "week": 10,
+      "away": "BUF",
+      "home": "DAL",
+      "kickoff": "2026-11-15T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-IND-TEN",
+      "week": 10,
+      "away": "IND",
+      "home": "TEN",
+      "kickoff": "2026-11-15T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-WAS-ARI",
+      "week": 10,
+      "away": "WAS",
+      "home": "ARI",
+      "kickoff": "2026-11-15T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-NO-GB",
+      "week": 10,
+      "away": "NO",
+      "home": "GB",
+      "kickoff": "2026-11-16T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W10-NE-DET",
+      "week": 10,
+      "away": "NE",
+      "home": "DET",
+      "kickoff": "2026-11-17T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-TB-PIT",
+      "week": 11,
+      "away": "TB",
+      "home": "PIT",
+      "kickoff": "2026-11-20T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-BAL-CAR",
+      "week": 11,
+      "away": "BAL",
+      "home": "CAR",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-BUF-MIA",
+      "week": 11,
+      "away": "BUF",
+      "home": "MIA",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-DEN-SF",
+      "week": 11,
+      "away": "DEN",
+      "home": "SF",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-DET-NYJ",
+      "week": 11,
+      "away": "DET",
+      "home": "NYJ",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-HOU-IND",
+      "week": 11,
+      "away": "HOU",
+      "home": "IND",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-LAR-KC",
+      "week": 11,
+      "away": "LAR",
+      "home": "KC",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-NE-JAX",
+      "week": 11,
+      "away": "NE",
+      "home": "JAX",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-WAS-PHI",
+      "week": 11,
+      "away": "WAS",
+      "home": "PHI",
+      "kickoff": "2026-11-22T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-GB-MIN",
+      "week": 11,
+      "away": "GB",
+      "home": "MIN",
+      "kickoff": "2026-11-22T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-NO-CHI",
+      "week": 11,
+      "away": "NO",
+      "home": "CHI",
+      "kickoff": "2026-11-22T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-NYG-DAL",
+      "week": 11,
+      "away": "NYG",
+      "home": "DAL",
+      "kickoff": "2026-11-22T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-TEN-LV",
+      "week": 11,
+      "away": "TEN",
+      "home": "LV",
+      "kickoff": "2026-11-23T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W11-LAC-CLE",
+      "week": 11,
+      "away": "LAC",
+      "home": "CLE",
+      "kickoff": "2026-11-24T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-IND-DAL",
+      "week": 12,
+      "away": "IND",
+      "home": "DAL",
+      "kickoff": "2026-11-27T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-ARI-SF",
+      "week": 12,
+      "away": "ARI",
+      "home": "SF",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-BAL-CHI",
+      "week": 12,
+      "away": "BAL",
+      "home": "CHI",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-DEN-BUF",
+      "week": 12,
+      "away": "DEN",
+      "home": "BUF",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-HOU-TEN",
+      "week": 12,
+      "away": "HOU",
+      "home": "TEN",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-JAX-LAC",
+      "week": 12,
+      "away": "JAX",
+      "home": "LAC",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-LAR-SEA",
+      "week": 12,
+      "away": "LAR",
+      "home": "SEA",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-NE-NYJ",
+      "week": 12,
+      "away": "NE",
+      "home": "NYJ",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-PHI-WAS",
+      "week": 12,
+      "away": "PHI",
+      "home": "WAS",
+      "kickoff": "2026-11-29T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-ATL-CLE",
+      "week": 12,
+      "away": "ATL",
+      "home": "CLE",
+      "kickoff": "2026-11-29T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-CIN-PIT",
+      "week": 12,
+      "away": "CIN",
+      "home": "PIT",
+      "kickoff": "2026-11-29T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-LV-MIA",
+      "week": 12,
+      "away": "LV",
+      "home": "MIA",
+      "kickoff": "2026-11-29T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-NO-CAR",
+      "week": 12,
+      "away": "NO",
+      "home": "CAR",
+      "kickoff": "2026-11-30T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W12-TB-DET",
+      "week": 12,
+      "away": "TB",
+      "home": "DET",
+      "kickoff": "2026-12-01T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-LAC-NE",
+      "week": 13,
+      "away": "LAC",
+      "home": "NE",
+      "kickoff": "2026-12-04T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-ATL-TB",
+      "week": 13,
+      "away": "ATL",
+      "home": "TB",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-CAR-CIN",
+      "week": 13,
+      "away": "CAR",
+      "home": "CIN",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-GB-DET",
+      "week": 13,
+      "away": "GB",
+      "home": "DET",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-IND-KC",
+      "week": 13,
+      "away": "IND",
+      "home": "KC",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-JAX-HOU",
+      "week": 13,
+      "away": "JAX",
+      "home": "HOU",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-LAR-SF",
+      "week": 13,
+      "away": "LAR",
+      "home": "SF",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-LV-NYJ",
+      "week": 13,
+      "away": "LV",
+      "home": "NYJ",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-MIA-DEN",
+      "week": 13,
+      "away": "MIA",
+      "home": "DEN",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-MIN-CHI",
+      "week": 13,
+      "away": "MIN",
+      "home": "CHI",
+      "kickoff": "2026-12-06T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-ARI-DAL",
+      "week": 13,
+      "away": "ARI",
+      "home": "DAL",
+      "kickoff": "2026-12-06T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-NYG-SEA",
+      "week": 13,
+      "away": "NYG",
+      "home": "SEA",
+      "kickoff": "2026-12-06T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-PHI-NO",
+      "week": 13,
+      "away": "PHI",
+      "home": "NO",
+      "kickoff": "2026-12-06T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-WAS-TEN",
+      "week": 13,
+      "away": "WAS",
+      "home": "TEN",
+      "kickoff": "2026-12-07T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W13-BAL-PIT",
+      "week": 13,
+      "away": "BAL",
+      "home": "PIT",
+      "kickoff": "2026-12-08T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-WAS-IND",
+      "week": 14,
+      "away": "WAS",
+      "home": "IND",
+      "kickoff": "2026-12-11T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-ATL-GB",
+      "week": 14,
+      "away": "ATL",
+      "home": "GB",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-BUF-NYJ",
+      "week": 14,
+      "away": "BUF",
+      "home": "NYJ",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-CAR-TB",
+      "week": 14,
+      "away": "CAR",
+      "home": "TB",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-CHI-MIN",
+      "week": 14,
+      "away": "CHI",
+      "home": "MIN",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-JAX-SEA",
+      "week": 14,
+      "away": "JAX",
+      "home": "SEA",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-LAR-LV",
+      "week": 14,
+      "away": "LAR",
+      "home": "LV",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-PHI-NYG",
+      "week": 14,
+      "away": "PHI",
+      "home": "NYG",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-PIT-HOU",
+      "week": 14,
+      "away": "PIT",
+      "home": "HOU",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-SF-ARI",
+      "week": 14,
+      "away": "SF",
+      "home": "ARI",
+      "kickoff": "2026-12-13T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-CLE-CIN",
+      "week": 14,
+      "away": "CLE",
+      "home": "CIN",
+      "kickoff": "2026-12-13T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-DEN-NE",
+      "week": 14,
+      "away": "DEN",
+      "home": "NE",
+      "kickoff": "2026-12-13T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-KC-LAC",
+      "week": 14,
+      "away": "KC",
+      "home": "LAC",
+      "kickoff": "2026-12-13T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-DET-MIA",
+      "week": 14,
+      "away": "DET",
+      "home": "MIA",
+      "kickoff": "2026-12-14T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W14-BAL-TEN",
+      "week": 14,
+      "away": "BAL",
+      "home": "TEN",
+      "kickoff": "2026-12-15T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-HOU-DEN",
+      "week": 15,
+      "away": "HOU",
+      "home": "DEN",
+      "kickoff": "2026-12-18T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-IND-LAR",
+      "week": 15,
+      "away": "IND",
+      "home": "LAR",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-LAC-LV",
+      "week": 15,
+      "away": "LAC",
+      "home": "LV",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-MIN-GB",
+      "week": 15,
+      "away": "MIN",
+      "home": "GB",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-NYG-PHI",
+      "week": 15,
+      "away": "NYG",
+      "home": "PHI",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-NYJ-MIA",
+      "week": 15,
+      "away": "NYJ",
+      "home": "MIA",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-PIT-CIN",
+      "week": 15,
+      "away": "PIT",
+      "home": "CIN",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-SEA-ARI",
+      "week": 15,
+      "away": "SEA",
+      "home": "ARI",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-TB-SF",
+      "week": 15,
+      "away": "TB",
+      "home": "SF",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-TEN-JAX",
+      "week": 15,
+      "away": "TEN",
+      "home": "JAX",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-WAS-DAL",
+      "week": 15,
+      "away": "WAS",
+      "home": "DAL",
+      "kickoff": "2026-12-20T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-ATL-NO",
+      "week": 15,
+      "away": "ATL",
+      "home": "NO",
+      "kickoff": "2026-12-20T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-BUF-DET",
+      "week": 15,
+      "away": "BUF",
+      "home": "DET",
+      "kickoff": "2026-12-20T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-NE-KC",
+      "week": 15,
+      "away": "NE",
+      "home": "KC",
+      "kickoff": "2026-12-20T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-CHI-CAR",
+      "week": 15,
+      "away": "CHI",
+      "home": "CAR",
+      "kickoff": "2026-12-21T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W15-BAL-CLE",
+      "week": 15,
+      "away": "BAL",
+      "home": "CLE",
+      "kickoff": "2026-12-22T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-CAR-NO",
+      "week": 16,
+      "away": "CAR",
+      "home": "NO",
+      "kickoff": "2026-12-25T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-ARI-SEA",
+      "week": 16,
+      "away": "ARI",
+      "home": "SEA",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-CLE-TEN",
+      "week": 16,
+      "away": "CLE",
+      "home": "TEN",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-DAL-WAS",
+      "week": 16,
+      "away": "DAL",
+      "home": "WAS",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-DEN-LAC",
+      "week": 16,
+      "away": "DEN",
+      "home": "LAC",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-DET-GB",
+      "week": 16,
+      "away": "DET",
+      "home": "GB",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-IND-PIT",
+      "week": 16,
+      "away": "IND",
+      "home": "PIT",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-LV-KC",
+      "week": 16,
+      "away": "LV",
+      "home": "KC",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-MIA-NYJ",
+      "week": 16,
+      "away": "MIA",
+      "home": "NYJ",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-SF-MIN",
+      "week": 16,
+      "away": "SF",
+      "home": "MIN",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-TB-ATL",
+      "week": 16,
+      "away": "TB",
+      "home": "ATL",
+      "kickoff": "2026-12-27T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-BAL-CIN",
+      "week": 16,
+      "away": "BAL",
+      "home": "CIN",
+      "kickoff": "2026-12-27T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-HOU-JAX",
+      "week": 16,
+      "away": "HOU",
+      "home": "JAX",
+      "kickoff": "2026-12-27T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-LAR-NYG",
+      "week": 16,
+      "away": "LAR",
+      "home": "NYG",
+      "kickoff": "2026-12-27T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-NE-PHI",
+      "week": 16,
+      "away": "NE",
+      "home": "PHI",
+      "kickoff": "2026-12-28T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "seventeenth",
+      "provisional": true
+    },
+    {
+      "id": "2026-W16-CHI-BUF",
+      "week": 16,
+      "away": "CHI",
+      "home": "BUF",
+      "kickoff": "2026-12-29T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-CLE-PIT",
+      "week": 17,
+      "away": "CLE",
+      "home": "PIT",
+      "kickoff": "2027-01-01T01:15:00.000Z",
+      "slot": "Thursday Night",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-CHI-NE",
+      "week": 17,
+      "away": "CHI",
+      "home": "NE",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-DAL-NYG",
+      "week": 17,
+      "away": "DAL",
+      "home": "NYG",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-JAX-BAL",
+      "week": 17,
+      "away": "JAX",
+      "home": "BAL",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-LAR-ARI",
+      "week": 17,
+      "away": "LAR",
+      "home": "ARI",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-LV-DEN",
+      "week": 17,
+      "away": "LV",
+      "home": "DEN",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-MIA-GB",
+      "week": 17,
+      "away": "MIA",
+      "home": "GB",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-MIN-NYJ",
+      "week": 17,
+      "away": "MIN",
+      "home": "NYJ",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-NO-ATL",
+      "week": 17,
+      "away": "NO",
+      "home": "ATL",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-SEA-LAC",
+      "week": 17,
+      "away": "SEA",
+      "home": "LAC",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-TB-CIN",
+      "week": 17,
+      "away": "TB",
+      "home": "CIN",
+      "kickoff": "2027-01-03T18:00:00.000Z",
+      "slot": "Sunday early",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-CAR-DET",
+      "week": 17,
+      "away": "CAR",
+      "home": "DET",
+      "kickoff": "2027-01-03T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-SF-WAS",
+      "week": 17,
+      "away": "SF",
+      "home": "WAS",
+      "kickoff": "2027-01-03T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-TEN-IND",
+      "week": 17,
+      "away": "TEN",
+      "home": "IND",
+      "kickoff": "2027-01-03T21:25:00.000Z",
+      "slot": "Sunday late",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-PHI-HOU",
+      "week": 17,
+      "away": "PHI",
+      "home": "HOU",
+      "kickoff": "2027-01-04T01:20:00.000Z",
+      "slot": "Sunday Night",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W17-BUF-KC",
+      "week": 17,
+      "away": "BUF",
+      "home": "KC",
+      "kickoff": "2027-01-05T01:15:00.000Z",
+      "slot": "Monday Night",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-BUF-MIN",
+      "week": 18,
+      "away": "BUF",
+      "home": "MIN",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-CHI-DAL",
+      "week": 18,
+      "away": "CHI",
+      "home": "DAL",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-CIN-CLE",
+      "week": 18,
+      "away": "CIN",
+      "home": "CLE",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-DEN-LV",
+      "week": 18,
+      "away": "DEN",
+      "home": "LV",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-DET-ATL",
+      "week": 18,
+      "away": "DET",
+      "home": "ATL",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-GB-PHI",
+      "week": 18,
+      "away": "GB",
+      "home": "PHI",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-IND-HOU",
+      "week": 18,
+      "away": "IND",
+      "home": "HOU",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-JAX-TEN",
+      "week": 18,
+      "away": "JAX",
+      "home": "TEN",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-LAC-KC",
+      "week": 18,
+      "away": "LAC",
+      "home": "KC",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-MIA-NE",
+      "week": 18,
+      "away": "MIA",
+      "home": "NE",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-NO-BAL",
+      "week": 18,
+      "away": "NO",
+      "home": "BAL",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "interconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-NYG-ARI",
+      "week": 18,
+      "away": "NYG",
+      "home": "ARI",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "intraconference",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-PIT-NYJ",
+      "week": 18,
+      "away": "PIT",
+      "home": "NYJ",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "standings",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-SF-LAR",
+      "week": 18,
+      "away": "SF",
+      "home": "LAR",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-TB-CAR",
+      "week": 18,
+      "away": "TB",
+      "home": "CAR",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "division",
+      "provisional": true
+    },
+    {
+      "id": "2026-W18-WAS-SEA",
+      "week": 18,
+      "away": "WAS",
+      "home": "SEA",
+      "kickoff": "2027-01-10T21:25:00.000Z",
+      "slot": "Week 18",
+      "kind": "intraconference",
+      "provisional": true
+    }
+  ]
+}
