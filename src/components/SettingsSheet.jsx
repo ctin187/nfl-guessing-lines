@@ -12,7 +12,7 @@ const REGIONS = [
 ]
 
 export default function SettingsSheet({
-  settings, onSettings, quota, schedule, onImportSchedule, onResetSchedule, onClose, onWipe,
+  settings, onSettings, quota, schedule, onImportSchedule, onResetSchedule, onClose, onWipe, install,
 }) {
   const [showKey, setShowKey] = useState(false)
   const [check, setCheck] = useState(null)
@@ -241,6 +241,22 @@ export default function SettingsSheet({
           />
         </div>
       </div>
+
+      {install?.available ? (
+        <>
+          <hr className="divider" />
+          <div className="field">
+            <label>Install</label>
+            <p className="field__hint" style={{ marginTop: 0 }}>
+              Add it to your home screen and it opens full screen, and works without a connection
+              for everything except fetching odds.
+            </p>
+            <button type="button" className="btn btn--sm" style={{ marginTop: 8 }} onClick={install.install}>
+              Add to home screen
+            </button>
+          </div>
+        </>
+      ) : null}
 
       {msg ? (
         <p className="field__hint" style={{ color: msg.ok ? 'var(--exact)' : 'var(--miss)' }}>{msg.text}</p>

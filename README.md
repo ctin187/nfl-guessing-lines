@@ -9,12 +9,16 @@ and how far off you were.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm test         # unit tests for the spread maths and schedule handling
-npm run build    # static bundle in dist/
+npm run dev        # http://localhost:5173
+npm test           # unit tests for the spread maths and schedule handling
+npm run build      # static bundle in dist/, plus a generated service worker
+npm run lint
+npm run test:e2e   # browser smoke test against the build (see Testing below)
 ```
 
-No server, no account, no backend. Everything lives in the browser.
+No server, no account, no backend. Everything lives in the browser, and the built
+`dist/` is plain static files you can host anywhere — the build uses relative paths, so
+a domain root and a subpath both work.
 
 ---
 
@@ -49,6 +53,11 @@ hanging an off-market number should not drag the consensus.
 Taking the wrong favourite is called out separately — being off by two points is a
 different mistake from having the wrong team laying the points. The week header rolls
 it all up: average error, exact hits, within a point, worst miss.
+
+Tapping the week name opens the season sheet: your cumulative numbers across every
+graded week, your best week, and all 18 weeks at a glance — each showing either how
+many lines you have set or, once graded, that week's average error. Tap any week to
+jump to it.
 
 ---
 
@@ -159,12 +168,50 @@ stay the same.
 
 ---
 
+## Installing it
+
+It is a PWA. On a phone, add it to your home screen (Chromium browsers surface a
+button in **Settings → Install**; on iOS use Share → Add to Home Screen) and it opens
+full screen with its own icon.
+
+A service worker precaches the app shell, so it opens with no signal — your guesses,
+captured snapshots and already-revealed lines are local anyway. The worker never
+touches `api.the-odds-api.com`: stale odds are worse than no odds. When you are
+offline the app says so and disables the two actions that need a network, but you can
+still enter and edit lines.
+
+The worker is generated at build time by `scripts/build-sw.mjs`, which precaches
+whatever the build just produced and versions the cache by its content. It is not
+registered in dev.
+
+## Testing
+
+```bash
+npm test                        # 21 unit tests, no browser needed
+npm run build
+npx playwright install chromium # once
+npm run test:e2e                # 25 checks in a real browser
+```
+
+The e2e suite serves the production build, stubs The Odds API with a deterministic
+payload, and walks the whole flow on a phone-sized viewport: entering and correcting a
+line, persistence across a reload, capturing before kickoff (and confirming the
+captured number stays hidden), revealing with the clock moved past kickoff, grading,
+the season sheet, week navigation and the offline state. It fails on any console error.
+
+CI runs lint, unit tests, the build, the schedule generator and the e2e suite on every
+push.
+
 ## Storage
 
 `localStorage`, under `ngl.v1.*`: guesses, captured snapshots, revealed lines,
 settings, an imported schedule, and which week you were last on. If the browser blocks
 storage (private windows, "block site data"), the app keeps working for the session and
 says so in Settings instead of throwing.
+
+Two tabs open on the same season stay in step: each adopts writes from the other and
+only ever persists values it actually changed, so an idle tab cannot overwrite the one
+you are typing in.
 
 **Settings → Your data** exports everything to a JSON file and restores it, which is
 also how you move a season between devices or browsers.
@@ -174,16 +221,34 @@ also how you move a season between devices or browsers.
 ```
 src/
   App.jsx                  week state, capture and reveal flows
-  components/              game card, spread input, sheets, week picker
+  components/              game card, spread input, sheets, season overview
+  hooks/                   persisted state, online status, install prompt
   lib/lines.js             parsing, formatting, consensus, grading
   lib/oddsApi.js           The Odds API client and typed errors
   lib/schedule.js          schedule normalising, event matching, kickoff gating
   lib/storage.js           localStorage with the failure modes handled
   data/teams.js            32 teams plus name resolution
   data/schedule-2026.json  generated; replace with the real thing
+public/
+  icon.svg                 source mark; PNGs are built from it
+  manifest.webmanifest
 scripts/
   build-schedule.mjs       formula-derived matchups + provisional week layout
   fetch-schedule.mjs       pull the real schedule from ESPN
+  build-sw.mjs             generates dist/sw.js after a build
+  build-icons.mjs          rasterises icon.svg (npm run icons)
   standings-2025.json      edit this, then re-run schedule:generate
-test/                      node:test suites for lines and schedule
+test/
+  *.test.mjs               node:test suites for lines and schedule
+  e2e.mjs                  browser smoke test
 ```
+
+## Deploying
+
+`npm run build` produces a self-contained `dist/`. Serve it from anywhere static —
+GitHub Pages, Netlify, Cloudflare Pages, an S3 bucket. Two things worth knowing:
+
+- Serve `index.html` for unknown paths if your host does SPA routing; the app has no
+  routes, so a plain static host works as-is.
+- `sw.js` must be served from the same directory as `index.html` (it is, by default)
+  and should not be cached by the CDN for long, or updates will lag.

@@ -54,7 +54,10 @@ async function getWeek(week) {
   try {
     res = await fetch(url, { headers: { Accept: 'application/json' } })
   } catch (err) {
-    throw new Error(`week ${week}: could not reach ${ENDPOINT} (${err.message}). Check your network or proxy.`)
+    throw new Error(
+      `week ${week}: could not reach ${ENDPOINT} (${err.message}). Check your network or proxy.`,
+      { cause: err },
+    )
   }
   if (!res.ok) throw new Error(`week ${week}: ESPN returned ${res.status} for ${url}`)
   const body = await res.json()

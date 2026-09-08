@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import GameCard from './components/GameCard.jsx'
 import SettingsSheet from './components/SettingsSheet.jsx'
-import WeekPicker from './components/WeekPicker.jsx'
+import SeasonSheet from './components/SeasonSheet.jsx'
 import WeekSummary from './components/WeekSummary.jsx'
+import { useInstallPrompt } from './hooks/useInstallPrompt.js'
+import { useOnline } from './hooks/useOnline.js'
 import { usePersistentState } from './hooks/usePersistentState.js'
 import { KEYS, remove } from './lib/storage.js'
 import { consensusFromBookmakers, flipConsensus, gradeGuess, summarize } from './lib/lines.js'
@@ -67,7 +69,7 @@ export default function App() {
     return () => { clearInterval(id); document.removeEventListener('visibilitychange', tick) }
   }, [])
 
-  const [week, setWeekState] = useState(() => {
+  const [rawWeek, setWeekState] = useState(() => {
     const remembered = Number(ui.week)
     const fresh = ui.weekAt && Date.now() - ui.weekAt < 12 * 3600 * 1000
     if (fresh && remembered >= 1 && remembered <= 18) return remembered
@@ -77,10 +79,8 @@ export default function App() {
     setWeekState(w)
     setUi((prev) => ({ ...prev, week: w, weekAt: Date.now() }))
   }, [setUi])
-
-  useEffect(() => {
-    if (week > schedule.weeks) setWeek(schedule.weeks)
-  }, [schedule.weeks, week, setWeek])
+  // An imported schedule can be shorter than the one we remembered a week from.
+  const week = Math.min(Math.max(rawWeek, 1), schedule.weeks)
 
   const [showWeeks, setShowWeeks] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
@@ -93,6 +93,8 @@ export default function App() {
     return () => clearTimeout(id)
   }, [status])
   const [quota, setQuota] = useState(null)
+  const online = useOnline()
+  const installPrompt = useInstallPrompt()
   const abortRef = useRef(null)
   useEffect(() => () => abortRef.current?.abort(), [])
 
@@ -113,13 +115,30 @@ export default function App() {
     [revealedGames, guesses, reveals],
   )
 
-  const weekStats = useCallback((w) => {
-    const list = schedule.byWeek.get(w) || []
-    return {
-      total: list.length,
-      entered: list.filter((g) => Number.isFinite(guesses[g.id])).length,
-      revealed: list.filter((g) => reveals[g.id]).length,
+  // Every week's state, plus the season-to-date roll-up, for the season sheet.
+  const weekRows = useMemo(() => {
+    const rows = []
+    for (let w = 1; w <= schedule.weeks; w++) {
+      const list = schedule.byWeek.get(w) || []
+      const grades = list.filter((g) => reveals[g.id]).map((g) => gradeGuess(guesses[g.id], reveals[g.id].line))
+      rows.push({
+        week: w,
+        total: list.length,
+        entered: list.filter((g) => Number.isFinite(guesses[g.id])).length,
+        revealed: grades.length,
+        summary: summarize(grades),
+      })
     }
+    return rows
+  }, [schedule, guesses, reveals])
+
+  const seasonSummary = useMemo(() => {
+    const grades = []
+    for (const game of schedule.games) {
+      const reveal = reveals[game.id]
+      if (reveal) grades.push(gradeGuess(guesses[game.id], reveal.line))
+    }
+    return summarize(grades)
   }, [schedule, guesses, reveals])
 
   const setGuess = useCallback((gameId, value) => {
@@ -200,7 +219,14 @@ export default function App() {
     if (!upcomingGames.length || autoRef.current) return
     if (ui.lastCaptureAt && Date.now() - ui.lastCaptureAt < AUTO_CAPTURE_INTERVAL) return
     autoRef.current = true
-    captureLines({ silent: true }).finally(() => { autoRef.current = false })
+    // Let the week settle first, so flicking through weeks does not fire requests.
+    const id = setTimeout(() => {
+      captureLines({ silent: true }).finally(() => { autoRef.current = false })
+    }, 600)
+    return () => {
+      clearTimeout(id)
+      autoRef.current = false
+    }
   }, [settings.autoCapture, settings.apiKey, upcomingGames.length, ui.lastCaptureAt, captureLines])
 
   /**
@@ -317,6 +343,7 @@ export default function App() {
     return out
   }, [games])
 
+  const lowQuota = quota && Number.isFinite(quota.remaining) && quota.remaining <= 20
   const showProvisionalNote = schedule.provisional && !ui.dismissedProvisional
   const showKeyNote = !settings.apiKey.trim() && !ui.dismissedKeyNote
 
@@ -367,6 +394,26 @@ export default function App() {
               <button type="button" className="iconbtn" style={{ minHeight: 0, padding: '0 2px', textDecoration: 'underline' }} onClick={() => setShowSettings(true)}>Add it</button>
             </div>
             <button type="button" className="note__dismiss" aria-label="Dismiss" onClick={() => setUi((p) => ({ ...p, dismissedKeyNote: true }))}>×</button>
+          </div>
+        ) : null}
+
+        {!online ? (
+          <div className="note note--warn">
+            <div className="note__body">
+              <strong>Offline.</strong> Your guesses still save locally. Capturing and revealing
+              lines need a connection.
+            </div>
+          </div>
+        ) : null}
+
+        {lowQuota ? (
+          <div className="note note--warn">
+            <div className="note__body">
+              <strong>{quota.remaining === 0 ? 'Odds API quota spent.' : `${quota.remaining} Odds API requests left.`}</strong>{' '}
+              {quota.remaining === 0
+                ? 'Capture and reveal will fail until your monthly allowance resets.'
+                : 'Captured snapshots cost nothing to reveal, so what you have already grabbed is safe.'}
+            </div>
           </div>
         ) : null}
 
@@ -425,7 +472,7 @@ export default function App() {
             type="button"
             className="btn"
             onClick={() => captureLines()}
-            disabled={!upcomingGames.length || busy !== null}
+            disabled={!upcomingGames.length || busy !== null || !online}
             title={upcomingGames.length ? 'Snapshot the market for games that have not kicked off' : 'Every game this week has kicked off'}
           >
             {busy === 'capture' ? <span className="spinner" /> : null}
@@ -435,7 +482,7 @@ export default function App() {
             type="button"
             className="btn btn--primary"
             onClick={revealWeek}
-            disabled={!pendingReveal.length || busy !== null}
+            disabled={!pendingReveal.length || busy !== null || (!online && !pendingReveal.some((g) => snapshots[g.id]))}
           >
             {busy === 'reveal' ? <span className="spinner" /> : null}
             {busy === 'reveal'
@@ -455,10 +502,11 @@ export default function App() {
       </main>
 
       {showWeeks ? (
-        <WeekPicker
+        <SeasonSheet
           schedule={schedule}
           week={week}
-          stats={weekStats}
+          weeks={weekRows}
+          season={seasonSummary}
           onPick={setWeek}
           onClose={() => setShowWeeks(false)}
         />
@@ -473,6 +521,7 @@ export default function App() {
           onImportSchedule={(blob) => { normalizeSchedule(blob); setCustomSchedule(blob) }}
           onResetSchedule={() => { setCustomSchedule(null); setStatus({ tone: 'ok', text: 'Back to the bundled schedule.' }); setShowSettings(false) }}
           onWipe={wipe}
+          install={installPrompt}
           onClose={() => setShowSettings(false)}
         />
       ) : null}

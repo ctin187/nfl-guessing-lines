@@ -6,18 +6,28 @@
   "description": "Mobile-first NFL line-guessing app for the 2026 season.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/build-sw.mjs",
     "preview": "vite preview",
     "schedule:generate": "node scripts/build-schedule.mjs",
     "schedule:fetch": "node scripts/fetch-schedule.mjs",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "lint": "eslint .",
+    "test:e2e": "node test/e2e.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.10.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.6",
+    "globals": "^17.12.0",
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4",
     "vite": "^8.2.2"
   }
 }

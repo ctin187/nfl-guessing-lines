@@ -4,3 +4,7 @@ dist
 *.local
 .env
 .env.*
+
+# scratch
+.shots.mjs
+.verify.mjs
