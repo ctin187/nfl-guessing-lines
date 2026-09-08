@@ -69,16 +69,19 @@ self.addEventListener('fetch', (event) => {
         return await fetch(request)
       } catch {
         const cache = await caches.open(CACHE)
-        return (await cache.match(INDEX)) || Response.error()
+        return (await cache.match(INDEX, { ignoreVary: true })) || Response.error()
       }
     })())
     return
   }
 
   // Build output is content-hashed, so a cache hit is always the right answer.
+  // ignoreVary matters: a dev/static server that sends \`Vary: Accept-Encoding\`
+  // otherwise makes every module and stylesheet miss, because the header the
+  // page sends does not match the one this worker sent during install.
   event.respondWith((async () => {
     const cache = await caches.open(CACHE)
-    const hit = await cache.match(request, { ignoreSearch: false })
+    const hit = await cache.match(request, { ignoreVary: true })
     if (hit) return hit
     try {
       const response = await fetch(request)

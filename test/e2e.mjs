@@ -165,6 +165,33 @@ try {
   await ctx.setOffline(false)
 
   check(errors.length === 0, `no console or page errors${errors.length ? `: ${errors.slice(0, 3).join(' | ')}` : ''}`)
+
+  // --- service worker, in a clean context with nothing intercepted -----------
+  const swCtx = await browser.newContext({ ...devices['iPhone 13'] })
+  const sw = await swCtx.newPage()
+  await sw.goto(BASE_URL, { waitUntil: 'networkidle' })
+
+  const registration = await sw.evaluate(async () => {
+    const r = await navigator.serviceWorker.ready
+    return Boolean(r.active)
+  })
+  check(registration, 'service worker activates')
+
+  const cache = await sw.evaluate(async () => {
+    const keys = await caches.keys()
+    const c = await caches.open(keys[0])
+    const urls = (await c.keys()).map((r) => r.url)
+    return { count: urls.length, odds: urls.some((u) => u.includes('the-odds-api')) }
+  })
+  check(cache.count >= 8, `precaches the app shell (${cache.count} files)`)
+  check(!cache.odds, 'never caches The Odds API')
+
+  await swCtx.setOffline(true)
+  await sw.reload({ waitUntil: 'domcontentloaded' })
+  await sw.waitForSelector('.card', { timeout: 10000 })
+  check((await sw.locator('.card').count()) > 0, 'app loads offline from the cache')
+  check(await sw.locator('.actions .btn').first().isDisabled(), 'capture is disabled offline')
+  await swCtx.close()
 } finally {
   await browser?.close()
   await server.close()

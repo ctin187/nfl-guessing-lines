@@ -30,11 +30,23 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      # Turning Pages on is a repository setting, and the workflow token is not
+      # allowed to do it. Say so plainly rather than failing on an opaque 404.
+      - name: Check that Pages is enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          status=$(curl -sS -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages")
+          if [ "$status" = "404" ]; then
+            echo "::error title=Enable GitHub Pages::One-time setup: Settings -> Pages -> Build and deployment -> Source: GitHub Actions. Then re-run this workflow and every later push deploys automatically."
+            exit 1
+          fi
+          echo "Pages is enabled (HTTP $status)."
+
       - uses: actions/configure-pages@v5
-        with:
-          # Turn Pages on the first time this runs, rather than needing a visit
-          # to repository settings.
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

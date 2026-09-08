@@ -247,7 +247,12 @@ test/
 ## Deploying
 
 `.github/workflows/deploy.yml` publishes the repository's default branch to GitHub
-Pages on every push, enabling Pages on its first run. Nothing to configure.
+Pages on every push.
+
+**One-time setup:** Settings → Pages → Build and deployment → Source: **GitHub
+Actions**. A workflow token is not allowed to turn Pages on, so until you do this the
+Deploy job stops with a message saying exactly that. Afterwards every push deploys on
+its own.
 
 To host it elsewhere, `npm run build` produces a self-contained `dist/` that works on
 any static host — Netlify, Cloudflare Pages, an S3 bucket. Two things worth knowing:
